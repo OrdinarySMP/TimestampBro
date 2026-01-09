@@ -1,0 +1,13 @@
+{
+  "text.autoconfig.TimestampBro.Title": "TimestampBro",
+  "text.autoconfig.TimestampBro.option.generalConfig.enable": "Enable",
+  "text.autoconfig.TimestampBro.option.generalConfig.enable.@Tooltip": "Toggle chat timestamps on or off.",
+  "text.autoconfig.TimestampBro.option.generalConfig.format": "Format",
+  "text.autoconfig.TimestampBro.option.generalConfig.format.@Tooltip": "Set the chat timestamp format using standard SimpleDateFormat patterns (e.g., HH:mm:ss, yyyy-MM-dd HH:mm).",
+  "text.autoconfig.TimestampBro.option.generalConfig.textColor": "Text Color",
+  "text.autoconfig.TimestampBro.option.generalConfig.textColor.@Tooltip": "Choose the color of the timestamp text.",
+  "text.autoconfig.TimestampBro.option.generalConfig.hoverText": "Hover Text",
+  "text.autoconfig.TimestampBro.option.generalConfig.hoverText.@Tooltip": "Text to display normally. Hovering over it will show the timestamp.",
+  "text.autoconfig.TimestampBro.option.generalConfig.hoverColor": "Hover Color",
+  "text.autoconfig.TimestampBro.option.generalConfig.hoverColor.@Tooltip": "Choose the color of the hover text."
+}

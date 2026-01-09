@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "timestampbro",
+  "version": "${version}",
+  "name": "TimestampBro",
+  "description": "Adds timestamps to chat messages, so you can see when each message was sent.",
+  "authors": [
+    "PadBro"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/timestampbro/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.padbro.timestampbro.client.TimestampBroClient"
+    ],
+    "main": [
+      "com.padbro.timestampbro.TimestampBro"
+    ],
+    "modmenu": [
+      "com.padbro.timestampbro.client.config.TimestampBroModMenuImplementation"
+    ]
+  },
+  "mixins": [
+    "timestampbro.mixins.json",
+    {
+      "config": "timestampbro.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
