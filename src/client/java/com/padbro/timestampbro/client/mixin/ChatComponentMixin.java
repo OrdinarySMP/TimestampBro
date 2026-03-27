@@ -3,7 +3,8 @@ package com.padbro.timestampbro.client.mixin;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.padbro.timestampbro.client.TimestampBroClient;
-import net.minecraft.client.GuiMessageTag;
+import net.minecraft.client.multiplayer.chat.GuiMessageSource;
+import net.minecraft.client.multiplayer.chat.GuiMessageTag;
 import net.minecraft.client.gui.components.ChatComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
@@ -18,18 +19,19 @@ import java.util.Objects;
 
 @Mixin(value = ChatComponent.class)
 public class ChatComponentMixin {
-    @WrapMethod(method = "addMessage(Lnet/minecraft/network/chat/Component;Lnet/minecraft/network/chat/MessageSignature;Lnet/minecraft/client/GuiMessageTag;)V")
+    @WrapMethod(method = "addMessage")
     private void wrapAddMessage(
             Component component,
-            MessageSignature messageSignature,
+            MessageSignature signature,
+            GuiMessageSource source,
             GuiMessageTag guiMessageTag,
             Operation<Void> original
     ) {
         if (!TimestampBroClient.getConfig().generalConfig.enable) {
-            original.call(component, messageSignature, guiMessageTag);
+            original.call(component, signature, source, guiMessageTag);
             return;
         }
-        original.call(addTimestamp(component), messageSignature, guiMessageTag);
+        original.call(addTimestamp(component), signature, source, guiMessageTag);
     }
 
     @Unique
